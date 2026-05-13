@@ -1,0 +1,17 @@
+services:
+  workspace:
+    build:
+      context: ./container/workspace
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    hostname: workspace
+    volumes:
+      - ../:/workspace:consistent
+      - ../.data-volumes/.claude:/home/dev-user/.claude:consistent
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    driver: bridge
