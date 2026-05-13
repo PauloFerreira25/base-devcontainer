@@ -3,6 +3,7 @@ FROM debian:trixie-slim
 ARG USER_UID=1000
 ARG GROUP_GID=1000
 ARG USERNAME=dev-user
+ARG NODE_VERSION=24
 
 RUN apt-get update && apt-get install -y \
     curl \
@@ -34,6 +35,9 @@ RUN install -m 0755 -d /etc/apt/keyrings \
     && rm -rf /var/lib/apt/lists/*
 
 
+RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y sudo \
     && rm -rf /var/lib/apt/lists/* \

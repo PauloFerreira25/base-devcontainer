@@ -11,7 +11,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Anthropic.claude-code"
+        "Anthropic.claude-code",
+        "ms-azuretools.vscode-docker",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory"
       ],
       "settings": {
         "files.exclude": {
