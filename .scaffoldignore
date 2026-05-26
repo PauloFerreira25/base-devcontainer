@@ -1,0 +1,4 @@
+# Files that are part of the template meta, not scaffolded to target projects
+scaffold.sh
+README.md
+.scaffoldignore
