@@ -1,3 +1,5 @@
+name: base-devcontainer
+
 services:
   workspace:
     build:
