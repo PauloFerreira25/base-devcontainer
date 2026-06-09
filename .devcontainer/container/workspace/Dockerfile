@@ -46,7 +46,8 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/* \
-    && npm install -g npm
+    && npm install -g npm \
+    && npm install -g @pauloferreira25/yaar
 
 RUN apt-get update && apt-get install -y sudo \
     && rm -rf /var/lib/apt/lists/* \
