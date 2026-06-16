@@ -61,10 +61,9 @@ RUN mkdir -p /home/${USERNAME}/.ssh /home/${USERNAME}/.claude \
     && chmod 700 /home/${USERNAME}/.ssh \
     && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.ssh /home/${USERNAME}/.claude
 
-USER ${USERNAME}
+RUN chown -R ${USER_UID}:${GROUP_GID} /workspace
 
 WORKDIR /workspace
-RUN chown -R ${USER_UID}:${GROUP_GID} /workspace
 
 # Switch to the created user
 USER ${USERNAME}
