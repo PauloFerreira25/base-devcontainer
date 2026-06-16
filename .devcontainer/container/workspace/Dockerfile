@@ -61,7 +61,7 @@ RUN mkdir -p /home/${USERNAME}/.ssh /home/${USERNAME}/.claude \
     && chmod 700 /home/${USERNAME}/.ssh \
     && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.ssh /home/${USERNAME}/.claude
 
-RUN chown -R ${USER_UID}:${GROUP_GID} /workspace
+RUN mkdir -p /workspace && chown -R ${USER_UID}:${GROUP_GID} /workspace
 
 WORKDIR /workspace
 
