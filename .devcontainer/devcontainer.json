@@ -4,10 +4,11 @@
   "service": "workspace",
   "workspaceFolder": "/workspace",
   "remoteUser": "dev-user",
-  "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/dev-user/.ssh,type=bind,consistency=cached",
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
