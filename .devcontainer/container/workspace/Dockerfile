@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     net-tools \
     iputils-ping \
+    pulseaudio-utils \
     && sed -i '/en_US.UTF-8/s/^# //' /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -37,7 +38,6 @@ RUN install -m 0755 -d /etc/apt/keyrings \
        docker-compose-plugin \
     && rm -rf /var/lib/apt/lists/*
 
-
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
@@ -45,6 +45,10 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /usr/local/share/sounds \
+    && python3 -c "import wave, struct, math; w = wave.open('/usr/local/share/sounds/beep.wav', 'w'); w.setnchannels(1); w.setsampwidth(2); w.setframerate(44100); [w.writeframesraw(struct.pack('<h', int(32767 * 0.5 * math.sin(2 * math.pi * 880 * i / 44100)))) for i in range(22050)]; w.close()" \
+    && chmod 644 /usr/local/share/sounds/beep.wav
 
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -y nodejs \
