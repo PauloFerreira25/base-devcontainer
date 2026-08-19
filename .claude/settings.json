@@ -1,14 +1,15 @@
 {
-    "hooks": {
-        "Stop": [
-            {
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "paplay /usr/local/share/sounds/beep.wav 2>/dev/null || true"
-                    }
-                ]
-            }
+  "showThinkingSummaries": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay /usr/local/share/sounds/beep.wav 2>/dev/null || true"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
